@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AlchemyByKirill_v_sqllite.ViewModels"
+             xmlns:models="clr-namespace:AlchemyByKirill_v_sqllite.Models"
+             x:DataType="vm:GameViewModel"
+             x:Class="AlchemyByKirill_v_sqllite.Views.GamePage"
+             BackgroundColor="#2A2530"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="*, Auto, Auto" Padding="10">
+
+        <Border Grid.Row="0" StrokeThickness="1" Stroke="#D4AF37" Padding="5" Margin="0,0,0,10">
+            <AbsoluteLayout x:Name="GameBoardLayout"
+                            BackgroundColor="#2A2530"
+                            BindableLayout.ItemsSource="{Binding GameBoardElements}">
+                <AbsoluteLayout.GestureRecognizers>
+                    <DropGestureRecognizer AllowDrop="True" Drop="OnDrop"/>
+                </AbsoluteLayout.GestureRecognizers>
+
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:Element">
+                        <ContentView AbsoluteLayout.LayoutFlags="None"
+                                     AbsoluteLayout.LayoutBounds="{Binding Bounds}"
+                                     BindingContext="{Binding .}">
+
+                            <Border Stroke="Transparent" StrokeThickness="2" BackgroundColor="Transparent" Padding="2">
+                                <VerticalStackLayout Spacing="2">
+
+                                    <Image Source="{Binding ImagePath}"
+                                           HeightRequest="40"
+                                           WidthRequest="40"
+                                           Aspect="AspectFit"
+                                           HorizontalOptions="Center">
+                                        <Image.GestureRecognizers>
+
+                                            <TapGestureRecognizer NumberOfTapsRequired="2"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type vm:GameViewModel}}, Path=DuplicateElementCommand}"
+                                                                  CommandParameter="{Binding .}"/>
+
+                                            <DragGestureRecognizer CanDrag="True"
+                                                                   DragStartingCommand="{Binding Source={RelativeSource AncestorType={x:Type vm:GameViewModel}}, Path=ElementDragStartingCommand}"
+                                                                   DragStartingCommandParameter="{Binding .}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                    <Label Text="{Binding Name}"
+                                           TextColor="#D4AF37"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center"
+                                           HorizontalTextAlignment="Center"
+                                           LineBreakMode="TailTruncation"/>
+                                </VerticalStackLayout>
+                            </Border>
+
+                        </ContentView>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+
+            </AbsoluteLayout>
+        </Border>
+
+        <Border Grid.Row="1" StrokeThickness="1" Stroke="#D4AF37" BackgroundColor="#2A2530" Padding="5" HeightRequest="160">
+
+            <CollectionView ItemsSource="{Binding DiscoveredElements}"
+                    SelectionMode="None"
+                    VerticalScrollBarVisibility="Always"
+                    HorizontalScrollBarVisibility="Never">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="5"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Element">
+                        <Grid Padding="5" WidthRequest="75" HeightRequest="75">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                            NumberOfTapsRequired="2"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:GameViewModel}}, Path=SpawnElementFromInventoryCommand}"
+                            CommandParameter="{Binding .}" />
+                            </Grid.GestureRecognizers>
+
+                            <Border Stroke="Transparent" StrokeThickness="1" BackgroundColor="Transparent" Padding="2">
+                                <VerticalStackLayout Spacing="2">
+                                    <Image Source="{Binding ImagePath}"
+                                   HeightRequest="35"
+                                   WidthRequest="35"
+                                   Aspect="AspectFit"
+                                   HorizontalOptions="Center" />
+                                    <Label Text="{Binding Name}"
+                                   TextColor="#D4AF37"
+                                   FontSize="14"
+                                    FontAttributes="Bold"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   LineBreakMode="TailTruncation"/>
+                                </VerticalStackLayout>
+                            </Border>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Border>
+
+        <HorizontalStackLayout 
+    Grid.Row="2"
+    Spacing="10"
+    HorizontalOptions="Center"
+    Padding="0,10,0,10">
+
+            <Button 
+                Text="Library"
+                Command="{Binding OpenLibraryCommand}"
+                WidthRequest="120"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="#2A2530"
+                BorderColor="#D4AF37"
+                BorderWidth="2"
+                TextColor="#D4AF37"
+                FontAttributes="Bold"
+                FontSize="12"/>
+
+            <Button 
+                Text="Clean Gamefield"
+                Command="{Binding ClearBoardCommand}"
+                WidthRequest="120"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="#2A2530"
+                BorderColor="#D4AF37"
+                BorderWidth="2"
+                TextColor="#D4AF37"
+                FontAttributes="Bold"
+                FontSize="12"/>
+
+            <Button 
+                Text="Exit To Menu"
+                Command="{Binding ExitCommand}"
+                WidthRequest="120"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="#2A2530"
+                BorderColor="#D4AF37"
+                BorderWidth="2"
+                TextColor="#D4AF37"
+                FontAttributes="Bold"
+                FontSize="12"/>
+            <!--<Button 
+                Text="Reveal All"
+                Command="{Binding RevealAllElementsCommand}"
+                WidthRequest="120"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="#402030" BorderColor="#D4AF37"
+                BorderWidth="2"
+                TextColor="#D4AF37"
+                FontAttributes="Bold"
+                FontSize="12"/>-->
+        </HorizontalStackLayout>
+        
+
+    </Grid>
+</ContentPage>

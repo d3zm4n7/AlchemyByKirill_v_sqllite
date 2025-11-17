@@ -1,0 +1,59 @@
+﻿// In Views/GamePage.xaml.cs
+using AlchemyByKirill_v_sqllite.Services;
+using AlchemyByKirill_v_sqllite.ViewModels; // Добавь using
+using ElementModel = AlchemyByKirill_v_sqllite.Models.Element;
+using Microsoft.Maui.Controls;
+
+
+namespace AlchemyByKirill_v_sqllite.Views;
+
+public partial class GamePage : ContentPage
+{
+    private GameViewModel VM => (GameViewModel)BindingContext;
+
+    public GamePage(GameViewModel vm)
+    {
+        InitializeComponent();
+        BindingContext = vm;
+        vm.LoadGame();
+
+        vm.ShowMessage = async (msg) =>
+        {
+            await DisplayAlert("Алхимия", msg, "OK");
+        };
+    }
+
+    private void OnDragStarting(object sender, DragStartingEventArgs e)
+    {
+        if (sender is BindableObject bo && bo.BindingContext is Element element)
+            VM.ElementDragStartingCommand.Execute(element);
+    }
+
+    private void OnDrop(object sender, DropEventArgs e)
+    {
+        var position = e.GetPosition(GameBoardLayout);
+        if (position.HasValue)
+            VM.DropAt(position.Value);
+    }
+
+    private void OnBoardDoubleTapped(object sender, TappedEventArgs e)
+    {
+        if (sender is BindableObject bo && bo.BindingContext is Element element)
+            VM.DuplicateElementCommand.Execute(element);
+    }
+
+    private void OnInventoryDoubleTapped(object sender, TappedEventArgs e)
+    {
+        if (sender is BindableObject bo && bo.BindingContext is Element element)
+            VM.SpawnElementFromInventoryCommand.Execute(element);
+    }
+
+
+}
+
+
+
+
+
+
+

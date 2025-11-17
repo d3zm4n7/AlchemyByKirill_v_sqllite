@@ -3,12 +3,13 @@
     x:Class="AlchemyByKirill_v_sqllite.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:AlchemyByKirill_v_sqllite"
-    Title="AlchemyByKirill_v_sqllite">
+    xmlns:local="clr-namespace:AlchemyByKirill_v_sqllite.Views"
+    xmlns:helpers="clr-namespace:AlchemyByKirill_v_sqllite.Helpers"
+    Title="AlchemyByKirill">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Main Menu"
+        ContentTemplate="{DataTemplate local:StartPage}"
+        Route="StartPage" />
 
 </Shell>

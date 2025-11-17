@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36603.0 d17.14
+VisualStudioVersion = 17.14.36414.22 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlchemyByKirill_v_sqllite", "AlchemyByKirill_v_sqllite.csproj", "{DD1649E8-F29A-45A5-BFF4-2CF9405D2BFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlchemyByKirill_v_sqllite", "AlchemyByKirill_v_sqllite.csproj", "{D03462EE-B559-4FAC-9BAE-C5C20E820C59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DD1649E8-F29A-45A5-BFF4-2CF9405D2BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD1649E8-F29A-45A5-BFF4-2CF9405D2BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD1649E8-F29A-45A5-BFF4-2CF9405D2BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD1649E8-F29A-45A5-BFF4-2CF9405D2BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D03462EE-B559-4FAC-9BAE-C5C20E820C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D03462EE-B559-4FAC-9BAE-C5C20E820C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D03462EE-B559-4FAC-9BAE-C5C20E820C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D03462EE-B559-4FAC-9BAE-C5C20E820C59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BDE4C157-CD48-4951-B3FB-89B2D1DCC3FE}
+		SolutionGuid = {D7DFAD87-9490-49C2-9331-3CB9CB12CF14}
 	EndGlobalSection
 EndGlobal

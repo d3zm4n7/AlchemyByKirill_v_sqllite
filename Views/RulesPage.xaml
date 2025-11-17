@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AlchemyByKirill_v_sqllite.ViewModels"
+             x:DataType="vm:RulesViewModel"
+             x:Class="AlchemyByKirill_v_sqllite.Views.RulesPage"
+             BackgroundColor="#2A2530"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label 
+                Text="ПРАВИЛА ИГРЫ"
+                FontSize="24"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="#D4AF37"/>
+
+            <Label 
+                Text="1. Соединяйте элементы, чтобы создавать новые."
+                FontSize="16"
+                TextColor="#D4AF37"
+                LineBreakMode="WordWrap"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"/>
+            <Label 
+                Text="2. Начинайте с базовых: вода, огонь, земля, воздух."
+                FontSize="16"
+                TextColor="#D4AF37"
+                LineBreakMode="WordWrap"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"/>
+            <Label Text="Например:"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="#D4AF37"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,0"/>
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="0,5,0,10">
+
+                <Image Source="fire.png" WidthRequest="40" HeightRequest="40" />
+
+                <Label Text="+" FontSize="24" TextColor="#D4AF37" VerticalOptions="Center"/>
+
+                <Image Source="droplet.png" WidthRequest="40" HeightRequest="40" />
+
+                <Label Text="=" FontSize="24" TextColor="#D4AF37" VerticalOptions="Center"/>
+
+                <Image Source="hot_springs.png" WidthRequest="40" HeightRequest="40" />
+
+            </HorizontalStackLayout>
+            <Label 
+                Text="3. Экспериментируйте — правильные комбинации откроют редкие элементы."
+                FontSize="16"
+                TextColor="#D4AF37"
+                LineBreakMode="WordWrap"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"/>
+            <Label 
+                Text="4. Чтобы вернуться на главный экран, нажмите 'Вернуться'."
+                FontSize="16"
+                TextColor="#D4AF37"
+                LineBreakMode="WordWrap"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"/>
+
+            <Button 
+                Text="Вернуться"
+                Command="{Binding GoBackCommand}"
+                WidthRequest="120"
+                HeightRequest="60"
+                CornerRadius="12"
+                BackgroundColor="#2A2530"
+                BorderColor="#D4AF37"
+                BorderWidth="2"
+                TextColor="#D4AF37"
+                FontAttributes="Bold"
+                FontSize="12"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
