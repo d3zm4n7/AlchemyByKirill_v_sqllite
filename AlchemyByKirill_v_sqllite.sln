@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlchemyByKirill_v_sqllite", "AlchemyByKirill_v_sqllite.csproj", "{DD1649E8-F29A-45A5-BFF4-2CF9405D2BFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD1649E8-F29A-45A5-BFF4-2CF9405D2BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD1649E8-F29A-45A5-BFF4-2CF9405D2BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD1649E8-F29A-45A5-BFF4-2CF9405D2BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD1649E8-F29A-45A5-BFF4-2CF9405D2BFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDE4C157-CD48-4951-B3FB-89B2D1DCC3FE}
+	EndGlobalSection
+EndGlobal
